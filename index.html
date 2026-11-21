@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#101828" />
+    <meta name="description" content="快递房管理员手机扫码入库入口。扫码在浏览器本地完成，数据提交至 Microsoft 365。" />
+    <title>快递房 · 扫码入库</title>
+    <script type="module" crossorigin src="./app.js"></script>
+    <link rel="stylesheet" crossorigin href="./styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="快递房扫码入库首页">
+          <span class="brand-mark">快</span>
+          <span><strong>快递房</strong><small>扫码入库</small></span>
+        </a>
+        <span class="service-badge"><i></i> Microsoft 365 表单</span>
+      </header>
+
+      <section class="intro" id="top">
+        <span class="eyebrow">管理员工具</span>
+        <h1>扫描快递条形码</h1>
+        <p>识别过程仅在当前浏览器内完成。识别成功后复制单号，并进入 Microsoft 365 表单完成拍照和保存。</p>
+      </section>
+
+      <section class="scanner-card" aria-labelledby="scanner-title">
+        <div class="scanner-heading">
+          <div>
+            <span class="step">步骤 1</span>
+            <h2 id="scanner-title">识别快递单号</h2>
+          </div>
+          <span class="local-badge">本地识别</span>
+        </div>
+
+        <div class="scanner-grid">
+          <div class="camera-stage" id="camera-stage">
+            <video id="camera-preview" muted playsinline aria-label="摄像头条码预览"></video>
+            <div class="camera-placeholder" id="camera-placeholder" aria-hidden="true">
+              <span class="barcode-glyph">▥</span>
+              <small>点击下方按钮开启摄像头</small>
+            </div>
+            <div class="scan-frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          </div>
+
+          <div class="controls">
+            <label for="tracking-number">快递单号</label>
+            <input id="tracking-number" type="text" inputmode="text" autocomplete="off" placeholder="扫码后自动填入，也可手工输入" />
+            <p class="status" id="status" role="status">支持 Code 128、Code 39、EAN、UPC、ITF 和二维码</p>
+
+            <div class="button-grid">
+              <button class="primary-button" id="camera-button" type="button">打开摄像头扫码</button>
+              <label class="secondary-button file-button">
+                拍摄或选择条码照片
+                <input id="image-input" type="file" accept="image/*" capture="environment" />
+              </label>
+            </div>
+            <button class="stop-button" id="stop-button" type="button" hidden>停止摄像头</button>
+
+            <div class="result" id="result" hidden>
+              <span>识别结果</span>
+              <strong id="result-value"></strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="submit-card" aria-labelledby="submit-title">
+        <div>
+          <span class="step">步骤 2</span>
+          <h2 id="submit-title">进入 Microsoft 365 入库表单</h2>
+          <p>单号会先复制到剪贴板。打开表单后粘贴单号，填写快递公司和存放位置，并在附件中拍摄快递标识。</p>
+          <div class="form-settings" id="form-settings">
+            <label for="form-url">首次使用：设置 Microsoft 365 表单地址</label>
+            <div>
+              <input id="form-url" type="url" inputmode="url" autocomplete="off" placeholder="https://学校域名.sharepoint.com/.../listforms.aspx" />
+              <button id="save-form-url" type="button">保存到本机</button>
+            </div>
+            <small id="form-url-status">地址只保存在当前浏览器，不会上传到 GitHub。</small>
+          </div>
+        </div>
+        <a id="form-link" class="form-link disabled" aria-disabled="true">复制单号并打开表单 <span>→</span></a>
+      </section>
+
+      <aside class="privacy-note">
+        <strong>隐私说明</strong>
+        <p>本页面不保存快递单号、照片或 Microsoft 365 登录信息。业务数据仅在您提交表单后进入学校的 Microsoft Lists。</p>
+      </aside>
+
+      <footer>快递房扫码工具 · 数据由 Microsoft 365 管理</footer>
+    </main>
+  </body>
+</html>
