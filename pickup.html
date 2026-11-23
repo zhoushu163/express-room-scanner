@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#101828" />
+    <meta name="description" content="快递房管理员查询快递并确认取走。" />
+    <title>快递房 · 查询与取走</title>
+    <script type="module" crossorigin src="./pickup-v1.js"></script>
+    <link rel="modulepreload" crossorigin href="./shared-CIPjpdn9.js">
+    <link rel="stylesheet" crossorigin href="./pickup-CG2SUko6.css">
+  </head>
+  <body>
+    <main class="pickup-shell">
+      <header class="pickup-topbar">
+        <a class="pickup-brand" href="./">
+          <span class="pickup-brand-mark">快</span>
+          <span><strong>快递房</strong><small>查询与取走</small></span>
+        </a>
+        <span class="pickup-auth-badge" id="pickup-auth-badge"><i></i> Microsoft 365 待登录</span>
+      </header>
+
+      <section class="pickup-hero">
+        <span>管理员工具</span>
+        <h1>查询并确认取走</h1>
+        <p>输入完整快递单号查询。只有二次确认“取走快递”后，系统才会更新 Microsoft 365 记录。</p>
+      </section>
+
+      <section class="pickup-card pickup-login-card">
+        <div>
+          <strong id="pickup-account-name">尚未登录 Microsoft 365</strong>
+          <small id="pickup-account-email">仅允许使用 @waiscz.com 工作账号。</small>
+        </div>
+        <button id="pickup-login-button" type="button">登录 Microsoft 365</button>
+      </section>
+
+      <section class="pickup-card">
+        <div class="pickup-section-heading">
+          <div><span>步骤 1</span><h2>查询快递</h2></div>
+          <span class="pickup-private-badge">完整单号查询</span>
+        </div>
+        <form class="pickup-search-form" id="pickup-search-form">
+          <label for="pickup-tracking-number">快递单号</label>
+          <div>
+            <input id="pickup-tracking-number" type="text" autocomplete="off" placeholder="请输入或扫描完整快递单号" required />
+            <button id="pickup-search-button" type="submit">查询</button>
+          </div>
+          <p id="pickup-search-status" role="status"></p>
+        </form>
+      </section>
+
+      <section class="pickup-card pickup-result-card" id="pickup-result-card" hidden>
+        <div class="pickup-section-heading">
+          <div><span>步骤 2</span><h2>快递信息</h2></div>
+          <span class="pickup-status-badge" id="pickup-status-badge"></span>
+        </div>
+        <dl class="pickup-details">
+          <div><dt>快递单号</dt><dd id="pickup-result-tracking"></dd></div>
+          <div><dt>快递公司</dt><dd id="pickup-result-company"></dd></div>
+          <div><dt>存放位置</dt><dd id="pickup-result-location"></dd></div>
+          <div><dt>入库时间</dt><dd id="pickup-result-inbound"></dd></div>
+        </dl>
+        <div class="pickup-result-actions">
+          <button id="pickup-take-button" type="button">取走快递</button>
+          <button id="pickup-search-another-button" type="button">查询其他快递</button>
+        </div>
+        <p id="pickup-action-status" role="status"></p>
+      </section>
+
+      <aside class="pickup-note">
+        <strong>操作记录</strong>
+        <p>确认取走后，记录状态将改为“已出库”，并在备注中写入北京时间和当前登录账号。</p>
+      </aside>
+    </main>
+
+    <div class="pickup-dialog-backdrop" id="pickup-dialog" role="dialog" aria-modal="true" aria-labelledby="pickup-dialog-title" hidden>
+      <div class="pickup-dialog-card">
+        <span class="pickup-dialog-icon" aria-hidden="true">!</span>
+        <h2 id="pickup-dialog-title">确认取走这件快递？</h2>
+        <p>快递单号：<strong id="pickup-dialog-tracking"></strong></p>
+        <p>确认后将更新数据库状态，并记录取走时间和登录账号。</p>
+        <div>
+          <button id="pickup-confirm-button" type="button">取走快递</button>
+          <button id="pickup-cancel-button" type="button">不取，再看看</button>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

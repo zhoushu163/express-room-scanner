@@ -6,8 +6,9 @@
     <meta name="theme-color" content="#101828" />
     <meta name="description" content="快递房管理员手机扫码、拍照并直接写入 Microsoft 365 Lists。" />
     <title>快递房 · 扫码入库</title>
-    <script type="module" crossorigin src="./app-v7.js"></script>
-    <link rel="stylesheet" crossorigin href="./styles.css">
+    <script type="module" crossorigin src="./app-v8.js"></script>
+    <link rel="modulepreload" crossorigin href="./shared-CIPjpdn9.js">
+    <link rel="stylesheet" crossorigin href="./main-FZhn3WZE.css">
   </head>
   <body>
     <main class="shell">
@@ -141,6 +142,7 @@
 
           <button class="submit-button" id="submit-button" type="submit">保存到 Microsoft 365 Lists</button>
           <p class="submit-status" id="submit-status" role="status"></p>
+          <a class="manual-form-link" href="./pickup.html">打开快递查询与取走页面 →</a>
           <a class="manual-form-link" id="manual-form-link" hidden target="_blank" rel="noreferrer">直接打开 Microsoft Lists 表单作为备用 →</a>
         </form>
       </section>
