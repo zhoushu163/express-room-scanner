@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#101828" />
     <meta name="description" content="快递房管理员手机扫码、拍照并直接写入 Microsoft 365 Lists。" />
     <title>快递房 · 扫码入库</title>
-    <script type="module" crossorigin src="./app-v6.js"></script>
+    <script type="module" crossorigin src="./app-v7.js"></script>
     <link rel="stylesheet" crossorigin href="./styles.css">
   </head>
   <body>
@@ -80,28 +80,8 @@
           <div class="form-grid">
             <label class="field">
               <span>快递公司 *</span>
-              <input id="courier-company" list="courier-options" autocomplete="off" placeholder="输入名称可模糊查找" required />
-              <datalist id="courier-options">
-                <option value="顺丰速运"></option>
-                <option value="京东物流"></option>
-                <option value="中通快递"></option>
-                <option value="圆通速递"></option>
-                <option value="申通快递"></option>
-                <option value="韵达速递"></option>
-                <option value="极兔速递"></option>
-                <option value="中国邮政"></option>
-                <option value="邮政EMS"></option>
-                <option value="德邦快递"></option>
-                <option value="跨越速运"></option>
-                <option value="菜鸟速递"></option>
-                <option value="丰网速运"></option>
-                <option value="安能物流"></option>
-                <option value="百世快运"></option>
-                <option value="DHL"></option>
-                <option value="FedEx"></option>
-                <option value="UPS"></option>
-                <option value="其他"></option>
-              </datalist>
+              <input id="courier-company" autocomplete="off" placeholder="扫描单号后自动识别" readonly required />
+              <small id="courier-detection-status" role="status">根据快递单号在当前页面自动判断，无法确定时归为“其他”。</small>
             </label>
 
             <label class="field">
