@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#101828" />
     <meta name="description" content="快递房管理员手机扫码、拍照并直接写入 Microsoft 365 Lists。" />
     <title>快递房 · 扫码入库</title>
-    <script type="module" crossorigin src="./app-v4.js"></script>
+    <script type="module" crossorigin src="./app-v5.js"></script>
     <link rel="stylesheet" crossorigin href="./styles.css">
   </head>
   <body>
@@ -162,5 +162,26 @@
 
       <footer>快递房扫码工具 · 数据由 Microsoft 365 管理</footer>
     </main>
+
+    <section class="success-screen" id="success-screen" aria-labelledby="success-title" hidden>
+      <div class="success-card">
+        <div class="success-icon" aria-hidden="true">✓</div>
+        <span class="success-eyebrow">入库完成</span>
+        <h1 id="success-title" tabindex="-1">快递已成功保存</h1>
+        <p>快递记录和照片已经写入 Microsoft 365。</p>
+
+        <dl class="success-details">
+          <div><dt>快递单号</dt><dd id="success-tracking-number"></dd></div>
+          <div><dt>存放位置</dt><dd id="success-storage-location"></dd></div>
+          <div><dt>记录编号</dt><dd id="success-record-id"></dd></div>
+        </dl>
+
+        <div class="success-actions">
+          <button class="success-primary" id="record-another-button" type="button">再录入一个快递</button>
+          <button class="success-secondary" id="close-page-button" type="button">关闭此页面</button>
+        </div>
+        <p class="close-page-status" id="close-page-status" role="status" hidden></p>
+      </div>
+    </section>
   </body>
 </html>
