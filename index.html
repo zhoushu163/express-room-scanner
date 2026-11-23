@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#101828" />
     <meta name="description" content="快递房管理员手机扫码、拍照并直接写入 Microsoft 365 Lists。" />
     <title>快递房 · 扫码入库</title>
-    <script type="module" crossorigin src="./app-v5.js"></script>
+    <script type="module" crossorigin src="./app-v6.js"></script>
     <link rel="stylesheet" crossorigin href="./styles.css">
   </head>
   <body>
@@ -54,7 +54,7 @@
               <button class="primary-button" id="camera-button" type="button">打开摄像头扫码</button>
               <label class="secondary-button file-button">
                 拍摄或选择条码照片
-                <input id="barcode-image-input" type="file" accept="image/*" capture="environment" />
+                <input id="barcode-image-input" type="file" accept="image/*" />
               </label>
             </div>
             <button class="stop-button" id="stop-button" type="button" hidden>停止摄像头</button>
@@ -124,8 +124,18 @@
 
             <label class="field photo-field">
               <span>快递照片 *</span>
-              <input id="parcel-photo" type="file" accept="image/*" capture="environment" required />
+              <span class="photo-source-grid">
+                <span class="photo-source-button">
+                  直接拍照
+                  <input id="parcel-photo-camera" type="file" accept="image/*" capture="environment" />
+                </span>
+                <span class="photo-source-button">
+                  从相册选择
+                  <input id="parcel-photo-library" type="file" accept="image/*" />
+                </span>
+              </span>
               <small>照片将上传到 Microsoft 365 文档库，并把链接写入 Lists 记录。</small>
+              <small class="wechat-photo-hint" id="wechat-photo-hint" hidden>微信内置浏览器可能无法直接调用摄像头，请先拍照后选择“从相册选择”；仍无反应时，请用右上角菜单在系统浏览器打开。</small>
             </label>
 
             <label class="field field-wide">
