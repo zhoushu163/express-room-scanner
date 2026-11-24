@@ -6,9 +6,9 @@
     <meta name="theme-color" content="#101828" />
     <meta name="description" content="快递房管理员手机扫码、拍照并直接写入 Microsoft 365 Lists。" />
     <title>快递房 · 扫码入库</title>
-    <script type="module" crossorigin src="./app-v8.js"></script>
+    <script type="module" crossorigin src="./app-v9.js"></script>
     <link rel="modulepreload" crossorigin href="./shared-CIPjpdn9.js">
-    <link rel="stylesheet" crossorigin href="./main-FZhn3WZE.css">
+    <link rel="stylesheet" crossorigin href="./main-UnYrSSHu.css">
   </head>
   <body>
     <main class="shell">
@@ -49,6 +49,7 @@
           <div class="controls">
             <label for="tracking-number">快递单号</label>
             <input id="tracking-number" type="text" inputmode="text" autocomplete="off" placeholder="扫码后自动填入，也可手工输入" required />
+            <p class="duplicate-status" id="duplicate-status" role="status">输入单号后自动检查是否重复录入</p>
             <p class="status" id="scan-status" role="status">支持 Code 128、Code 39、EAN、UPC、ITF 和二维码</p>
 
             <div class="button-grid">
