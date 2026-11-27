@@ -6,9 +6,9 @@
     <meta name="theme-color" content="#002753" />
     <meta name="description" content="快递房管理员查询快递并确认取走。" />
     <title>快递房 · 查询与取走</title>
-    <script type="module" crossorigin src="./pickup-v1.js"></script>
-    <link rel="modulepreload" crossorigin href="./shared-CIPjpdn9.js">
-    <link rel="stylesheet" crossorigin href="./pickup-BM_yRb2k.css">
+    <script type="module" crossorigin src="./pickup-v2.js"></script>
+    <link rel="modulepreload" crossorigin href="./shared-BkLojgFK.js">
+    <link rel="stylesheet" crossorigin href="./pickup-BHOtlLcw.css">
   </head>
   <body>
     <main class="pickup-shell">
@@ -42,10 +42,23 @@
         </div>
         <form class="pickup-search-form" id="pickup-search-form">
           <label for="pickup-tracking-number">快递单号</label>
-          <div>
+          <div class="pickup-search-row">
             <input id="pickup-tracking-number" type="text" autocomplete="off" placeholder="请输入或扫描完整快递单号" required />
             <button id="pickup-search-button" type="submit">查询</button>
           </div>
+          <div class="pickup-scan-actions">
+            <button id="pickup-camera-button" type="button">打开摄像头扫码</button>
+            <label class="pickup-image-button">
+              拍摄或选择条码照片
+              <input id="pickup-barcode-image" type="file" accept="image/*" />
+            </label>
+          </div>
+          <div class="pickup-camera-panel" id="pickup-camera-panel" hidden>
+            <video id="pickup-camera-preview" muted playsinline aria-label="快递单号扫码预览"></video>
+            <div class="pickup-scan-frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            <button id="pickup-stop-camera" type="button">停止摄像头</button>
+          </div>
+          <p id="pickup-scan-status" role="status">可以手工输入、摄像头扫码或识别条码照片。</p>
           <p id="pickup-search-status" role="status"></p>
         </form>
       </section>
